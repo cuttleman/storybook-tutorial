@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+const Title = ({ title }) => {
+  return <div>{title}</div>;
+};
+const Templete = (args) => <Title {...args} />;
+const BindedTitle = Templete.bind({});
+console.log(BindedTitle);
+BindedTitle.args = {
+  title: "bind",
+};
+console.log(BindedTitle);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Title title="hello" />
+      <BindedTitle />
     </div>
   );
 }
